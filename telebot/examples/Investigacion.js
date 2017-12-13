@@ -17,7 +17,7 @@ bot.on(['/start', '/back'], msg => {
 bot.on('/buttons', msg => {
 
     let replyMarkup = bot.keyboard([
-        [bot.button('contact', 'Your contact'), bot.button('location', 'Your location')],
+        [bot.button('contact', 'Your numero'), bot.button('location', 'Your sitio')],
         ['/back', '/hide']
     ], {resize: true});
 
@@ -39,17 +39,18 @@ bot.on(['location', 'contact'], (msg, self) => {
 
 // Inline buttons
 bot.on('/inlineKeyboard', msg => {
+    var pregunta = "¿Que te parece la situación de cataluña?";
+    var respuestas = ["Me da igual","les cagaba en el pecho","todas putas","viva franco", "no soy 100tifico"];
+    var botones = [];
+    for (var i = 0; i <= respuestas.length - 1; i++) {
+        var aux = [bot.inlineButton(respuestas[i], {callback: 'this_is_data'})];
+        botones.push(aux);
+    }
 
-    let replyMarkup = bot.inlineKeyboard([
-        [
-            bot.inlineButton('callback', {callback: 'this_is_data'}),
-            bot.inlineButton('inline', {inline: 'some query'})
-        ], [
-            bot.inlineButton('url', {url: 'https://telegram.org'})
-        ]
-    ]);
+    let replyMarkup = bot.inlineKeyboard(botones);
 
-    return bot.sendMessage(msg.from.id, 'Inline keyboard example.', {replyMarkup});
+
+    return bot.sendMessage(msg.from.id, pregunta, {replyMarkup});
 
 });
 
