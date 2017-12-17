@@ -1,0 +1,20 @@
+1- Acceder a la carpeta mediante el terminal donde esta el archivo .yaml del docker
+
+2- Ejecutar los siguientes comandos
+	- "sudo docker ps": para ver los contenedores activos.
+	- "sudo docker-compose up -d": para iniciar el contenedor docker que esta en el directorio.
+	- "sudo docker ps": para confirmar que se ha iniciado el contenedor.
+
+3- Si queremos acceder a la base de datos para hacer cualquier consulta utilizaremos el siguiente:
+	- "sudo docker exec -it <Nombre_del_contenedor> mysql -uroot -p".
+
+*Nota: el nombre del contenedor aparece cuando haces docker ps solo tienes que copiarlo y sustituirlo.
+
+4- Una vez dentro de mariaDB con el tipico lenguaje sql para navegar por el bash, para empezar are "use <NombeDB>" para cambiar y usar la base de datos que queremos consultar y apartir de ahi usamos sentencias sql para la consulta.
+
+5- En caso de querer detener el contenedor usaremos el siguiente comando:
+	-"sudo docker-compose stop".
+
+6- En caso de querer eliminar los contenedores porque alguna modificación del os scripts de inicio utilizaremos lo siguiente:
+	-"sudo docker-compose down".
+
