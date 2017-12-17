@@ -44,7 +44,7 @@ con.query("SELECT * FROM poll", function (err, result, fields) {
 
 
 }
-else{
+else if(Number.isInteger(parseInt(message.text))){
   var chatId = message.chat.id;
 
 var query2 = "SELECT * FROM question where poll_id = "+message.text;
