@@ -1,0 +1,14 @@
+
+1.- Usar la consola de comandos de node y seleccionar el directorio del proyecto:
+		por ejemplo>   C:\Users\"usuario"\Desktop>
+
+2.- Crear una carpeta.-
+		>mkdir ejemplo
+
+3.- Acceder a la carpeta
+		>cd ejemplo
+
+4.- Usar npm para iniciar el proyecto.-
+		>npm init
+
+5.- Rellenar los campos que te van solicitando.

@@ -1,0 +1,14 @@
+
+1.- limpiar la cache del gestor de paquetes para evitar conflictos:
+sudo npm cache clean -f
+2.- usar los siguientes comandos para descargar/instalar la version estable mas actualizada de node:
+sudo npm install -g n
+sudo n stable
+3.- usamos ln para enlasar los archivos de la version nueva de node: 
+sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/nodejs
+4.- comprobar la version de node
+sudo node -v
+5.- y para el npm:
+sudo npm install -g npm
+6.- comprobar la version de npm
+sudo npm -v

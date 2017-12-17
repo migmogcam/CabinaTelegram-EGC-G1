@@ -1,0 +1,19 @@
+
+1.- vamos a utilizar la librería request de Node.js, para ello:
+
+		en la direccion del proyecto>npm add request
+
+2.- Solicitar el Token de telegram para el bot.
+
+		hay que usar al @BotFather y... buscar en intenet es largo de explicar
+
+3.- Con el token ya tendriamos acceso a la api de telegram 
+		https://core.telegram.org/bots/api
+
+4.- Luego necesitamos la API de Telegram por tanto la descargamos con node.
+		>npm install node-telegram-bot-api
+
+5.- Con eso ya podemos empezar a crear .js en los que se le pasa el token y se utiliza la api de telegram
+
+6.- Para usar el bot solo tienes que ejecutar el .js con node:
+		>node test.js

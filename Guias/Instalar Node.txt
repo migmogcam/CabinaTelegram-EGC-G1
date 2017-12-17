@@ -1,0 +1,7 @@
+para intalar node:
+	
+	En windows descargar intalador y ejecutar:
+	https://nodejs.org/es/download/
+
+	En linux usar un gestor de paquetes es mas facil, dejo enlace con las instrucciones:
+	https://nodejs.org/es/download/package-manager/
