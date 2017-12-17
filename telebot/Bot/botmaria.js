@@ -30,7 +30,7 @@ con.query("SELECT * FROM poll", function (err, result, fields) {
 });*/
 
 bot.on('text', function (message) {
-console.log(message.text);
+
 if(message.text == "List" || message.text == "list" || message.text == "/list" ) {
 
 con.query("SELECT * FROM poll", function (err, result, fields) {
