@@ -7,6 +7,8 @@
     "node": ">= 6.0.0"
   },
   "dependencies": {
+    "mysql": "^2.15.0",
+    "node-mariadb": "^0.1.1",
     "request": "^2.81.0"
   },
   "devDependencies": {
