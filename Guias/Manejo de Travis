@@ -1,0 +1,6 @@
+1- Hacer un fork del repositorio de GitHub.
+2- Usando tu cuenta de GitHub entra en https://travis-ci.org y acepta la confirmación de permisos de GitHub.
+3- Una vez que estés logueado en Travis CI y se hayan sincronizado tus repositorios de GitHub, ve a tu perfil y activa el repositorio que quieras construir.
+4- Añade un fichero .travis.yml a tu repositorio para indicar a Travis CI lo que tiene que hacer.
+5- Haz commit y push del .travis.yml para iniciar una build de Travis CI.
+6- Comprueba en la página de estado de la construcción si tu build ha pasado o falla.

@@ -62,15 +62,31 @@ bot.on('text', function (message) {
 	 	for (let i = 0; i <= result2.length - 1; i++) {
 			var aux = [bot.inlineButton(result2[i].description, {callback: 'this_is_data'}	)];
 			botones.push(aux);
+
+	        var aux = [bot.inlineButton(result2[i].description, {callback: 'some_data_callback'})];
+	        botones.push(aux);
+
 	    	}
 		var replyMarkup = bot.inlineKeyboard(botones);
 		bot.sendMessage(message.from.id, titulo, {replyMarkup});
 		});
 
+
 	});
 	}
 	    return bot;
 	});
+
+}
+
+// Inline button callback
+bot.on('callbackQuery', msg => {
+    // aqui se puede añadir las funcionalidades de los botones
+    return bot.answerCallbackQuery(msg.id, `Inline button callback: ${ msg.data }`, true);
+});
+
+    return bot;
+});
 
 
 bot.start();
