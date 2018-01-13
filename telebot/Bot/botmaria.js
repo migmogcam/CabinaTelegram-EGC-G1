@@ -21,7 +21,7 @@ bot.on(['/start', '/Volver'], msg => {
     var text = '¡Bienvenido '+name+'!\n' +
                    'Este bot es una integración de un sistema de votacion electronica desarrollada por' +
 		   ' los alumnos de la asignatura de Evaluación y Gestión de la Configuración (EGC) '+
-		   'Grado de Ingeniería del Software.\n' +
+		   'Grado de Ingeniería del Software en la US.\n' +
                    '\n';
     let replyMarkup = bot.keyboard([
         ['Listar encuestas']
@@ -32,6 +32,7 @@ bot.on(['/start', '/Volver'], msg => {
 
 
 bot.on('text', function (message) {
+
 	var n = message.text.split(" ");
 
 	if(message.text == "List" || message.text == "list" || message.text == "/list" || message.text == 			"Listar encuestas" ) {
@@ -79,7 +80,7 @@ bot.on('text', function (message) {
 		});
 		}else{
 		let replyMarkup = bot.keyboard([["/Volver" ]], {resize: true});
-		bot.sendMessage(message.from.id,"Ya finalizó la encuesta gracias.Pulse volver", {replyMarkup});
+		bot.sendMessage(message.from.id, "Ya finalizó la encuesta gracias.Pulse volver", {replyMarkup});
 		}		
 
 	});
