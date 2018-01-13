@@ -1,5 +1,5 @@
 const TeleBot = require('../');
-const bot = new TeleBot('489385493:AAHABtpV9COcsOfgvhJM7WLy32TMps_PDiI');
+const bot = new TeleBot('468529599:AAGcOzFesrDRJ9SJzvvs___qjJJxppbMcbc');
 
 
 const mysql = require('mysql');
@@ -32,48 +32,45 @@ bot.on(['/start', '/Volver'], msg => {
 
 
 bot.on('text', function (message) {
+	var n = message.text.split(" ");
 
-if(message.text == "List" || message.text == "list" || message.text == "/list" || message.text == "Listar encuestas" ) {
+	if(message.text == "List" || message.text == "list" || message.text == "/list" || message.text == 			"Listar encuestas" ) {
 
-con.query("SELECT * FROM poll", function (err, result, fields) {
-    if (err) throw err;
+	con.query("SELECT * FROM poll", function (err, result, fields) {
+	    if (err) throw err;
 
-    let replyMarkup = bot.keyboard([
-        ['/Volver']
-], {resize: true});
-    
-    for(var i = 0; i <= result.length -1; i++){
-		
-	bot.sendMessage(message.from.id, 'Si quiere participar en la encuesta "'+result[i].title+'" Escriba: '+result[i].id, {replyMarkup});
-		
-    }	
-	});
-}
-else if(Number.isInteger(parseInt(message.text))){
-  var chatId = message.chat.id;
-
-var query2 = "SELECT * FROM question where poll_id = "+message.text;
-con.query(query2, function (err, result1, fields) {
-for(var i = 0; i <= result1.length -1; i++){
-	    var botones = [];
-	var titulo = result1[i].title;
-	    var query3 = "SELECT * FROM question_option where question_id = "+result1[i].id;
-		con.query(query3, function (err, result2, fields) {
+	    let replyMarkup = bot.keyboard([
+		['/Volver']
+	], {resize: true});
+	    
+	    for(var i = 0; i <= result.length -1; i++){
+	
+		bot.sendMessage(message.from.id, 'Si quiere participar en la encuesta "'+result[i].title+'" Escriba: '+result[i].id, {replyMarkup});
+	
+	    }	
+		});
+	}
+	else if(n[0] == "Next"){
+	var u = n[2];
+	var poll = n[1];
+	var query2 = "SELECT * FROM question where poll_id = " + poll;
+	con.query(query2, function (err, result1, fields) {
+	var botones = [];
+	var titulo = result1[u].title;
+	var query3 = "SELECT * FROM question_option where question_id = "+result1[u].id;
+	con.query(query3, function (err, result2, fields) {
 	 	for (let i = 0; i <= result2.length - 1; i++) {
-	        var aux = [bot.inlineButton(result2[i].description, {callback: 'this_is_data'})];
-	        botones.push(aux);
+			var aux = [bot.inlineButton(result2[i].description, {callback: 'this_is_data'}	)];
+			botones.push(aux);
 	    	}
 		var replyMarkup = bot.inlineKeyboard(botones);
 		bot.sendMessage(message.from.id, titulo, {replyMarkup});
 		});
-	
-	    
-    }
-});
 
-}
-    return bot;
-});
+	});
+	}
+	    return bot;
+	});
 
 
 bot.start();
