@@ -45,7 +45,7 @@ bot.on('text', function (message) {
 	    
 	    for(var i = 0; i <= result.length -1; i++){
 	
-		bot.sendMessage(message.from.id, 'Si quiere participar en la encuesta "'+result[i].title+'" Escriba: /'+result[i].id, {replyMarkup});
+		bot.sendMessage(message.from.id, 'Si quiere participar en la encuesta "'+result[i].title+'" Pulsar: /'+result[i].id, {replyMarkup});
 	
 	    }	
 		});
