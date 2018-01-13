@@ -60,7 +60,7 @@ for(var i = 0; i <= result1.length -1; i++){
 	    var query3 = "SELECT * FROM question_option where question_id = "+result1[i].id;
 		con.query(query3, function (err, result2, fields) {
 	 	for (let i = 0; i <= result2.length - 1; i++) {
-	        var aux = [bot.inlineButton(result2[i].description, {callback: 'this_is_data'})];
+	        var aux = [bot.inlineButton(result2[i].description, {callback: 'some_data_callback'})];
 	        botones.push(aux);
 	    	}
 		var replyMarkup = bot.inlineKeyboard(botones);
@@ -72,6 +72,13 @@ for(var i = 0; i <= result1.length -1; i++){
 });
 
 }
+
+// Inline button callback
+bot.on('callbackQuery', msg => {
+    // aqui se puede añadir las funcionalidades de los botones
+    return bot.answerCallbackQuery(msg.id, `Inline button callback: ${ msg.data }`, true);
+});
+
     return bot;
 });
 
