@@ -1,5 +1,5 @@
 const TeleBot = require('../');
-const bot = new TeleBot('468529599:AAGcOzFesrDRJ9SJzvvs___qjJJxppbMcbc');
+const bot = new TeleBot('489385493:AAHABtpV9COcsOfgvhJM7WLy32TMps_PDiI');
 
 
 const mysql = require('mysql');
@@ -15,34 +15,39 @@ con.connect(function(err) {
   if (err) throw err;
 });
 
+bot.on(['/start', '/Volver'], msg => {
+    var chatId = msg.from.id;
+    var name = msg.from.first_name;
+    var text = '¡Bienvenido '+name+'!\n' +
+                   'Este bot es una integración de un sistema de votacion electronica desarrollada por' +
+		   ' los alumnos de la asignatura de Evaluación y Gestión de la Configuración (EGC) '+
+		   'Grado de Ingeniería del Software.\n' +
+                   '\n';
+    let replyMarkup = bot.keyboard([
+        ['Listar encuestas']
+], {resize: true});
 
-/*bot.on('/list', msg => {
+    return bot.sendMessage(chatId, text, {replyMarkup});
+});
 
-con.query("SELECT * FROM poll", function (err, result, fields) {
-    if (err) throw err;
-  
-    for(var i = 0; i <= result.length -1; i++){
-		
-		bot.sendMessage(msg.from.id, result[i].id +' .  '+ result[i].title);
-    }	
-	});
-    return bot;
-});*/
 
 bot.on('text', function (message) {
 
-if(message.text == "List" || message.text == "list" || message.text == "/list" ) {
+if(message.text == "List" || message.text == "list" || message.text == "/list" || message.text == "Listar encuestas" ) {
 
 con.query("SELECT * FROM poll", function (err, result, fields) {
     if (err) throw err;
-  
+
+    let replyMarkup = bot.keyboard([
+        ['/Volver']
+], {resize: true});
+    
     for(var i = 0; i <= result.length -1; i++){
 		
-		bot.sendMessage(message.from.id, result[i].id +' .  '+ result[i].title);
+	bot.sendMessage(message.from.id, 'Si quiere participar en la encuesta "'+result[i].title+'" Escriba: '+result[i].id, {replyMarkup});
+		
     }	
 	});
-
-
 }
 else if(Number.isInteger(parseInt(message.text))){
   var chatId = message.chat.id;
