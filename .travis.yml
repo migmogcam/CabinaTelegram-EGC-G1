@@ -18,9 +18,9 @@ node_js:
 
 install:
 
-  - sudo npm install
-  - sudo npm add request
-  - sudo npm install mysql
+  - npm install
+  - npm add request
+  - npm install mysql
 
 
 branches:
