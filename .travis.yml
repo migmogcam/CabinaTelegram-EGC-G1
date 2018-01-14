@@ -32,6 +32,14 @@ branches:
 
   - dev
 
+cache:
+
+  directories:
+
+    - node_modules
+
 script:
-  
-  - npm test
+
+    - npm run test
+
+    - npm run lint
