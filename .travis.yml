@@ -33,5 +33,5 @@ branches:
   - dev
 
 script:
-
+  - cd Bot
   - npm test
