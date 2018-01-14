@@ -17,7 +17,9 @@ node_js:
 - "9"
 
 before_install:
-
+  - cd mariaDB
+  - docker-compose up -d
+  - cd ..
   - cd telebot
 
 install:
@@ -35,4 +37,4 @@ branches:
 
 script:
 
-  - node Bot/BotEgc.js
+  - node Bot/botmaria.js
