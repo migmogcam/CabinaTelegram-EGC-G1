@@ -35,4 +35,4 @@ branches:
 
 script:
 
-  - node Bot/botmaria.js
+  - node Bot/BotEgc.js
