@@ -21,6 +21,8 @@ install:
   - npm install
   - npm add request
   - npm install mysql
+  - cd telebot/
+  - cd Bot/
 
 
 branches:
