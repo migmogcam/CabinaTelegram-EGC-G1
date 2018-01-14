@@ -18,12 +18,7 @@ node_js:
 
 before_install:
 
-  - cd mariaDB
-  - docker ps
-  - docker-compose up -d
-  - docker ps
-  - sudo docker exec -it mariadb_mysql_1 mysql -uroot -p
-  - cd ..
+  - cd telebot
 
 install:
 
@@ -40,4 +35,4 @@ branches:
 
 script:
 
-  - node botmaria.js
+  - node Bot/botmaria.js
