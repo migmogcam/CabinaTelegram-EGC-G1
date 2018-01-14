@@ -2,6 +2,8 @@ sudo: required
 
 
 services:
+  - mariadb
+
   - docker
 
 
@@ -15,9 +17,6 @@ node_js:
 - "9"
 
 before_install:
-  - cd mariaDB
-  - docker-compose up -d
-  - cd ..
   - cd telebot
 
 install:
@@ -35,4 +34,4 @@ branches:
 
 script:
 
-  - node Bot/botmaria.js
+  - node Bot/test.js
