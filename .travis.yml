@@ -1,0 +1,33 @@
+sudo: required
+
+
+services:
+  - mariadb
+
+  - docker
+
+
+language: node_js
+
+
+node_js:
+
+- "node"
+
+- "9"
+
+install:
+
+  - npm install
+  - npm install mysql
+
+
+branches:
+
+  only:
+
+  - dev
+
+script:
+
+  - node botmaria.js
