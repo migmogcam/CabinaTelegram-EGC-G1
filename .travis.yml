@@ -1,36 +1,11 @@
-sudo: required
-
-
-services:
-  - mariadb
-
-  - docker
-
 
 language: node_js
 
-
 node_js:
 
-- "node"
+  - "6"
 
-- "9"
-
-before_install:
-  - cd telebot
-
-install:
-
-  - npm install
-  - npm add request
-  - npm install mysql
-
-
-branches:
-
-  only:
-
-  - dev
+  - "7"
 
 cache:
 
