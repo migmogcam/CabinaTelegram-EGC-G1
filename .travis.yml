@@ -16,6 +16,15 @@ node_js:
 
 - "9"
 
+before_install:
+
+  - cd mariaDB
+  - docker ps
+  - docker-compose up -d
+  - docker ps
+  - sudo docker exec -it mariadb_mysql_1 mysql -uroot -p
+  - cd ..
+
 install:
 
   - npm install
