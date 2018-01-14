@@ -14,7 +14,7 @@ let {
 
 test('bot environment', t => {
 
-    t.true(!!TOKEN, '489385493:AAHABtpV9COcsOfgvhJM7WLy32TMps_PDiI');
+    t.true(!!TOKEN, 'TEST_TELEBOT_TOKEN required');
     t.true(!!USER, 'TEST_TELEBOT_USER required');
 
 });
