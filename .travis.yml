@@ -34,4 +34,4 @@ branches:
 
 script:
 
-  - node Bot/test.js
+  - npm test
